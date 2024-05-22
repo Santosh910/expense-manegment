@@ -20,10 +20,10 @@ app.use(express.json())
 
 app.use("/api/v1",router)
 
-app.use(express.static(join(__dirname,"./client/build")))
+app.use(express.static(join(__dirname,"/client/build")))
 
 app.get("*",function(req,res){
-    res.sendFile(join(__dirname,"./client/build/index.html"))
+    res.sendFile(join(__dirname,"client","build","index.html"))
 })
 
 mongoose.connect(process.env.MONGOURL).then(()=>console.log("database connected"))
